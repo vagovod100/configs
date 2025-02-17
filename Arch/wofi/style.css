@@ -15,8 +15,6 @@
 @define-color base0E #A3BE8C;
 @define-color base0F #B48EAD;
 
-
-
 @define-color base   #24273a;
 @define-color mantle #1e2030;
 @define-color crust  #181926;
@@ -47,7 +45,6 @@
 @define-color pink      #f5bde6;
 @define-color flamingo  #f0c6c6;
 @define-color rosewater #f4dbd6;
-
 
 #entry {
 border-radius: 5px;

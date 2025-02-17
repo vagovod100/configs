@@ -15,7 +15,7 @@
 		"pulseaudio",
 		"hyprland/language",
 		"battery",
-		"custom/powermenu",
+		"custom/powermenu"
 	],
 	"tray": {
 		"spacing": 10
@@ -106,7 +106,7 @@
     "custom/powermenu": {
       "format": "",
       "tooltip": false,
-      "on-click": "exec wlogout -p layer-shell",
+      "on-click": "exec wlogout",
     },
     "pulseaudio": {
       "format": "{icon}  {volume}%",
