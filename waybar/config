@@ -3,6 +3,7 @@
 	"position": "top",
 	"margin-bottom": 0,
 	"modules-left": [
+		"custom/menu",
 		"hyprland/workspaces",
 		"hyprland/window"
 	],
@@ -11,17 +12,23 @@
 	],
 	"modules-right": [
 		"tray",
-		"network",
+		//"network",
 		"pulseaudio",
 		"hyprland/language",
+		"power-profiles-daemon",
 		"battery",
 		"custom/powermenu"
 	],
+	"custom/menu": {
+    	"format": "󰣇",
+    	"on-click": "wofi",
+		"tooltip-format": "Menu\n\nSuper + D"
+	},
 	"tray": {
 		"spacing": 10
 	},
 	"hyprland/language":{
-		"format": "  {short}"
+		"format": " {short}"
 	},
 	"hyprland/window": {
 		"format": "{initialTitle}",
@@ -85,19 +92,19 @@
       }
     },
     "network": {
-	"tooltip-format-ethernet": "{ifname} ",
-	"interval": 2,
-	"format": "  {signalStrength}%"
+		"tooltip-format-ethernet": "{ifname} ",
+		"interval": 2,
+		"format": "  {signalStrength}%"
     },
     "temperature": {
-	"thermal-zone": 1,
-	"format": "{icon} {temperatureC}°C",
-	"critical-threshold": 80,
-	"format-icons": ["", "", ""]
+		"thermal-zone": 1,
+		"format": "{icon} {temperatureC}°C",
+		"critical-threshold": 80,
+		"format-icons": ["", "", ""]
     },
     "memory": {
-      "format": "  {}%",
-      "tooltip": "false"
+    	"format": "  {}%",
+    	"tooltip": "false"
     },
     "cpu": {
       "format": " {usage}%",
@@ -109,7 +116,7 @@
       "on-click": "exec wlogout",
     },
     "pulseaudio": {
-      "format": "{icon}  {volume}%",
+      "format": "{icon} {volume}%",
       "format-bluetooth": "{icon}   {volume}%",
       "format-muted": "",
       "format-icons": {
@@ -125,9 +132,20 @@
       "on-click": "pavucontrol"
     },
     "clock": {
-      "format": "{:%H:%M}",
+      "format": " {:%H:%M}",
       "interval": 60,
       "tooltip": true,
       "tooltip-format": "{:%d %B %H:%M}"
-    }
+    },
+    "power-profiles-daemon": {
+	"format": "{icon}",
+	"tooltip-format": "Power profile: {profile}nDriver: {driver}",
+	"tooltip": true,
+	"format-icons": {
+		"default": "",
+		"performance": "",
+		"balanced": "",
+		"power-saver": ""
+  	}
+}
 }
