@@ -43,11 +43,32 @@ return {
       },
     })
 
+	vim.lsp.config("gopls", {
+      capabilities = capabilities,
+      filetypes = { "go" },
+      root_markers = { "go.mod", ".git" },
+      settings = {
+        gopls = {
+          analyses = {
+            nilness = false,
+            unusedparams = false,
+          },
+        },
+      },
+    })
+
     vim.lsp.enable("clangd")
+	vim.lsp.enable("gopls")
 
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local bufnr = args.buf
+		
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+        if client and client.name == "gopls" then
+          vim.diagnostic.disable(bufnr)
+		end
 
         local function map(lhs, rhs, desc)
           vim.keymap.set("n", lhs, rhs, {
